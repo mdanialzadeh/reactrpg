@@ -8,13 +8,11 @@ import {
 } from "recoil";
 
 function Controls() {
-  const [Action, SetAction] = useRecoilState(actionState);
-
   return (
     <div>
-      <button onClick={SetAction("Attack")}>Attack</button>
-      <button onClick={SetAction("Block")}>Block</button>
-      <button onClick={SetAction("Skill")}>Skill</button>
+      <button>Attack</button>
+      <button>Block</button>
+      <button>Skill</button>
     </div>
   );
 }
