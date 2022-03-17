@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Knight from "./Knight";
+import Controls from "./Controls";
+import {
+  RecoilRoot,
+  atom,
+  selector,
+  useRecoilState,
+  useRecoilValue,
+} from "recoil";
 
 function App() {
+  const actionState = atom({
+    key: "actionState",
+    default: "idle",
+  });
+
+  console.log(actionState);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <RecoilRoot>
+        <div className="game-container">
+          <div className="game-canvas">
+            <Knight />
+          </div>
+        </div>
+        <Controls />
+      </RecoilRoot>
     </div>
   );
 }

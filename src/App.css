@@ -1,38 +1,62 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+body {
+  background: grey;
+  height: 100%;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  height: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  flex-direction: column;
 }
 
-.App-link {
-  color: #61dafb;
+.game-container {
+  position: relative;
+  width: clamp(300px, 80%, 1000px);
+  height: clamp(200px, 40%, 800px);
+  display: flex;
+  outline: 2px solid black;
+  background-size: 100% 100%;
+  background-image: url("./Assets/Backgroundlayers/Layer_0000_9.png"),
+    url("./Assets/Backgroundlayers/Layer_0001_8.png"),
+    url("./Assets/Backgroundlayers/Layer_0002_7.png"),
+    url("./Assets/Backgroundlayers/Layer_0003_6.png"),
+    url("./Assets/Backgroundlayers/Layer_0004_Lights.png"),
+    url("./Assets/Backgroundlayers/Layer_0005_5.png"),
+    url("./Assets/Backgroundlayers/Layer_0006_4.png"),
+    url("./Assets/Backgroundlayers/Layer_0007_Lights.png"),
+    url("./Assets/Backgroundlayers/Layer_0008_3.png"),
+    url("./Assets/Backgroundlayers/Layer_0009_2.png"),
+    url("./Assets/Backgroundlayers/Layer_0010_1.png"),
+    url("./Assets/Backgroundlayers/Layer_0011_0.png");
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.game-canvas {
+  width: 95%;
+  height: 85%;
+  margin: auto;
+  border: 1px solid red;
+  position: relative;
+}
+
+.charContainer {
+  width: 90px;
+  height: 60px;
+  position: absolute;
+  bottom: 0;
 }
