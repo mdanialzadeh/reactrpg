@@ -10,13 +10,6 @@ import {
 } from "recoil";
 
 function App() {
-  const actionState = atom({
-    key: "actionState",
-    default: "idle",
-  });
-
-  console.log(actionState);
-
   return (
     <div className="App">
       <RecoilRoot>
