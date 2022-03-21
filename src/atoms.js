@@ -9,3 +9,8 @@ export const actionStateComp = atom({
   key: "actionStateComp",
   default: "idle",
 });
+
+export const activeScreen = atom({
+  key: "activeScreen",
+  default: "charSelection",
+});

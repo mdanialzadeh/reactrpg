@@ -1,12 +1,12 @@
 import React from "react";
 import Spritesheet from "react-responsive-spritesheet";
-import KnightAtk from "./Assets/Knight/knightAtkAnimation.png";
+import idleAnimation from "./KnightIdle.png";
 
-function knightAtk() {
+function knightIdle() {
   return (
     <Spritesheet
       autoplay={true}
-      image={KnightAtk}
+      image={idleAnimation}
       widthFrame={90}
       heightFrame={60}
       steps={4}
@@ -19,4 +19,4 @@ function knightAtk() {
   );
 }
 
-export default knightAtk;
+export default knightIdle;

@@ -1,7 +1,4 @@
-import "./App.css";
-import Knight from "./Knight.js";
-import Controls from "./Controls";
-import Round from "./Round";
+import Game from "./Game";
 import {
   RecoilRoot,
   atom,
@@ -12,17 +9,9 @@ import {
 
 function App() {
   return (
-    <div className="App">
-      <RecoilRoot>
-        <Round />
-        <div className="game-container">
-          <div className="game-canvas">
-            <Knight />
-          </div>
-        </div>
-        <Controls />
-      </RecoilRoot>
-    </div>
+    <RecoilRoot>
+      <Game />
+    </RecoilRoot>
   );
 }
 

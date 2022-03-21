@@ -1,18 +1,17 @@
 import React from "react";
 import Spritesheet from "react-responsive-spritesheet";
-import skillAnimation from "./Assets/Knight/knightSkillAnimation.png";
+import KnightAtk from "./knightAtkAnimation.png";
 
-function knightSkill() {
+function knightAtk() {
   return (
     <Spritesheet
       autoplay={true}
-      image={skillAnimation}
+      image={KnightAtk}
       widthFrame={90}
       heightFrame={60}
       steps={4}
       fps={4}
       loop={true}
-      isResponsive={true}
       onInit={(spritesheet) => {
         spritesheet.goToAndPlay(1);
       }}
@@ -20,4 +19,4 @@ function knightSkill() {
   );
 }
 
-export default knightSkill;
+export default knightAtk;

@@ -1,12 +1,12 @@
 import React from "react";
 import Spritesheet from "react-responsive-spritesheet";
-import blockAnimation from "./Assets/Knight/knightBlockAnimation.png";
+import KnightAtk from "./knightAtkAnimation.png";
 
-function knightBlock() {
+function WizardAtk() {
   return (
     <Spritesheet
       autoplay={true}
-      image={blockAnimation}
+      image={KnightAtk}
       widthFrame={90}
       heightFrame={60}
       steps={4}
@@ -19,4 +19,4 @@ function knightBlock() {
   );
 }
 
-export default knightBlock;
+export default WizardAtk;
