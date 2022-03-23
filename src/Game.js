@@ -13,8 +13,7 @@ import { activeScreen } from "./atoms";
 import CharsSelection from "./CharsSelection";
 
 function Game() {
-  const [currentScreen, setcurrentScreen] = useRecoilState(activeScreen);
-  console.log(currentScreen);
+  const currentScreen = useRecoilValue(activeScreen);
 
   return (
     <div className="App">

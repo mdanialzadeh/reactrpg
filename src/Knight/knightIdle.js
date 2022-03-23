@@ -7,8 +7,8 @@ function knightIdle() {
     <Spritesheet
       autoplay={true}
       image={idleAnimation}
-      widthFrame={90}
-      heightFrame={60}
+      widthFrame={120}
+      heightFrame={80}
       steps={4}
       fps={4}
       loop={true}
