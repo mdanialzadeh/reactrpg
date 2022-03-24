@@ -1,38 +1,15 @@
-import React, { useEffect, useCallback } from "react";
+import React, { useEffect } from "react";
 import { useRecoilValue, useRecoilState } from "recoil";
-import { actionState, actionStateComp } from "./atoms.js";
+import { roundStateUser, roundStateComp } from "./atoms.js";
 
 function Round() {
-  const action = useRecoilValue(actionState);
-  const [ActionComp, setActionComp] = useRecoilState(actionStateComp);
-
-  console.log(action);
-
-  const computerplay = useCallback(() => {
-    const RandomAction = Math.floor(Math.random() * 3);
-    switch (RandomAction) {
-      case 0:
-        setActionComp("Attack");
-        break;
-      case 1:
-        setActionComp("Block");
-        break;
-      case 2:
-        setActionComp("Skill");
-        break;
-      default:
-        return "Idle";
-    }
-  });
-
-  useEffect(() => {
-    computerplay();
-  }, [action, computerplay]);
+  const userRoundAction = useRecoilValue(roundStateUser);
+  const compRoundAction = useRecoilValue(roundStateComp);
 
   return (
     <div>
-      <>{action}</>
-      <>{ActionComp}</>
+      <>{userRoundAction}</>
+      <>{compRoundAction}</>
     </div>
   );
 }

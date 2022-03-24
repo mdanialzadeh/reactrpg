@@ -12,6 +12,7 @@ function knightAtk() {
       steps={4}
       fps={4}
       loop={true}
+      timeout={0.2}
       onInit={(spritesheet) => {
         spritesheet.goToAndPlay(1);
       }}

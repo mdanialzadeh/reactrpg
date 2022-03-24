@@ -27,8 +27,8 @@ body {
 
 .game-container {
   position: relative;
-  width: clamp(300px, 60%, 800px);
-  height: clamp(200px, 40%, 800px);
+  width: clamp(350px, 90%, 700px);
+  height: clamp(300px, 35%, 600px);
   display: flex;
   outline: 2px solid black;
   background-size: 100% 100%;
@@ -51,19 +51,129 @@ body {
   height: 85%;
   margin: auto;
   border: 1px solid rgba(255, 255, 255, 0.281);
-  position: relative;
+  display: flex;
 }
 
 .charContainer {
   position: absolute;
   bottom: 0;
-  left: 10;
-
+  margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+.charContainerActive {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: myAnim 1.2s ease 0s 1 normal forwards;
+}
+
+.mobContainer {
+  position: absolute;
+  bottom: 0;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mobContainerActive {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: enemyanim 1.2s ease 0s 1 normal forwards;
+}
+
 .charSelectionContainer {
   display: flex;
+  position: relative;
+  width: clamp(350px, 90%, 700px);
+  height: clamp(300px, 35%, 600px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: 2px solid black;
+}
+
+@keyframes myAnim {
+  0% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+
+  20% {
+    opacity: 1;
+    transform: translateX(8vw);
+  }
+
+  80% {
+    opacity: 1;
+    transform: translateX(8vw);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes enemyanim {
+  0% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+
+  20% {
+    opacity: 1;
+    transform: translateX(-8vw);
+  }
+
+  80% {
+    opacity: 1;
+    transform: translateX(-8vw);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+.user-canvas {
+  border: 1px solid red;
+  position: relative;
+  height: 100%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.enemy-canvas {
+  border: 1px solid red;
+  position: relative;
+  height: 100%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.statsContainer {
+  position: absolute;
+  background-image: linear-gradient(
+    to right,
+    #ffffff34,
+    #ffffff30,
+    #ffffff20,
+    #ffffff10,
+    #ffffff00
+  );
+  backdrop-filter: blur(44px);
+  left: 0;
+  padding: 10px;
 }

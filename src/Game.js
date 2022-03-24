@@ -2,13 +2,9 @@ import "./App.css";
 import Knight from "./Knight/Knight.js";
 import Controls from "./Controls";
 import Round from "./Round";
-import {
-  RecoilRoot,
-  atom,
-  selector,
-  useRecoilState,
-  useRecoilValue,
-} from "recoil";
+import Golem from "./Mobs/Rock.js";
+import { useRecoilValue } from "recoil";
+import Stats from "./Stats";
 import { activeScreen } from "./atoms";
 import CharsSelection from "./CharsSelection";
 
@@ -25,7 +21,13 @@ function Game() {
               <Round />
               <div className="game-container">
                 <div className="game-canvas">
-                  <Knight />
+                  <div className="user-canvas">
+                    <Stats />
+                    <Knight />
+                  </div>
+                  <div className="enemy-canvas">
+                    <Golem />
+                  </div>
                 </div>
               </div>
               <Controls />
