@@ -1,37 +1,58 @@
-import React, { useEffect, useState } from "react";
-import Spritesheet from "react-responsive-spritesheet";
-import Idle from "./WizardIdle.png";
-import Atk from "./knightAtk.js";
-import Skill from "./knightSkill.js";
-import Block from "./knightBlock.js";
+import React from "react";
+import atkAnimation from "./WidzardAtk.png";
+import blockAnimation from "./WizardBlock.png";
+import idleAnimation from "./WizardIdle.png";
+import skillAnimation from "./WizardSkill.png";
+import Animation from "../../Animation";
 import { useRecoilValue } from "recoil";
-import { actionState } from "../atoms.js";
+import { animationStateUser, KnightStats } from "../../../atoms";
+import Lifebar from "../../../Lifebar";
 
 function Wizard() {
-  const action = useRecoilValue(actionState);
+  const animation = useRecoilValue(animationStateUser);
+  const stats = useRecoilValue(KnightStats);
 
   return (
-    <div className="charContainer">
-      {
+    <div
+      className={animation === "Idle" ? "charContainer" : "charContainerActive"}
+      key={animation}
+    >
+      <Lifebar current={stats.currentHP} max={stats.maxHP} />
+      {animation === "Idle" ? (
+        <Animation
+          animation={idleAnimation}
+          steps={4}
+          direction={"forward"}
+          fps={4}
+        />
+      ) : (
         {
-          Idle: (
-            <Spritesheet
-              autoplay={true}
-              image={Idle}
-              widthFrame={90}
-              heightFrame={60}
+          Attack: (
+            <Animation
+              animation={atkAnimation}
               steps={4}
+              direction={"forward"}
               fps={4}
-              loop={true}
-              isResponsive={true}
             />
           ),
-
-          Attack: <Atk />,
-          Block: <Block />,
-          Skill: <Skill />,
-        }[action]
-      }
+          Block: (
+            <Animation
+              animation={blockAnimation}
+              steps={4}
+              direction={"forward"}
+              fps={4}
+            />
+          ),
+          Skill: (
+            <Animation
+              animation={skillAnimation}
+              steps={4}
+              direction={"forward"}
+              fps={4}
+            />
+          ),
+        }[animation]
+      )}
     </div>
   );
 }

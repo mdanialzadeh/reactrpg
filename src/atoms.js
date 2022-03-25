@@ -1,13 +1,13 @@
 import { atom } from "recoil";
 
-export const actionState = atom({
-  key: "actionState",
-  default: "idle",
+export const animationStateUser = atom({
+  key: "animationStateUser",
+  default: "Idle",
 });
 
-export const actionStateComp = atom({
-  key: "actionStateComp",
-  default: "idle",
+export const animationStateComp = atom({
+  key: "animationStateComp",
+  default: "Idle",
 });
 
 export const roundStateUser = atom({

@@ -1,5 +1,6 @@
 import React from "react";
 import KnightIdle from "./Assets/Classes/Knight/KnightIdle.png";
+import WizardIdle from "./Assets/Classes/Wizard/WizardIdle.png";
 import { useRecoilState } from "recoil";
 import { activeScreen } from "./atoms";
 import Animation from "./Assets/Animation";
@@ -16,11 +17,26 @@ function CharsSelection() {
   return (
     <div className="charSelectionContainer">
       <div style={{ display: "flex", flexDirection: "column" }}>
-        <Animation animation={KnightIdle} />
+        <Animation
+          animation={KnightIdle}
+          steps={4}
+          direction={"forward"}
+          fps={4}
+        />
         <button onClick={handleChange}>Knight</button>
       </div>
-      <Animation animation={KnightIdle} />
-      <Animation animation={KnightIdle} />
+      <Animation
+        animation={WizardIdle}
+        steps={4}
+        direction={"forward"}
+        fps={4}
+      />
+      <Animation
+        animation={KnightIdle}
+        steps={4}
+        direction={"forward"}
+        fps={4}
+      />
     </div>
   );
 }

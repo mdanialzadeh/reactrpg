@@ -1,14 +1,20 @@
 import React, { useEffect } from "react";
 import { useRecoilState } from "recoil";
-import { actionState, roundStateUser, roundStateComp } from "./atoms";
+import {
+  animationStateComp,
+  animationStateUser,
+  roundStateUser,
+  roundStateComp,
+} from "./atoms";
 
 function Controls() {
   const [compAction, setCompAction] = useRecoilState(roundStateComp);
-  const [action, setAction] = useRecoilState(actionState);
+  const [animationUser, setAnimationUser] = useRecoilState(animationStateUser);
+  const [animationComp, setAnimationComp] = useRecoilState(animationStateComp);
   const [userAction, setUserAction] = useRecoilState(roundStateUser);
 
   const handleChange = (event) => {
-    setAction(event.target.value);
+    setAnimationUser(event.target.value);
     setUserAction(event.target.value);
 
     const RandomAction = Math.floor(Math.random() * 3);
@@ -16,12 +22,15 @@ function Controls() {
     switch (RandomAction) {
       case 0:
         setCompAction("Attack");
+        setAnimationComp("Attack");
         break;
       case 1:
         setCompAction("Block");
+        setAnimationComp("Block");
         break;
       case 2:
         setCompAction("Skill");
+        setAnimationComp("Skill");
         break;
       default:
     }
@@ -29,31 +38,32 @@ function Controls() {
 
   useEffect(() => {
     setTimeout(() => {
-      if (action !== "Idle") {
-        setAction("Idle");
+      if (animationUser !== "Idle") {
+        setAnimationUser("Idle");
+        setAnimationComp("Idle");
       }
-    }, 1200);
-  }, [action, setAction]);
+    }, 1600);
+  }, [animationUser, setAnimationComp, setAnimationUser]);
 
   return (
     <div>
       <button
         onClick={handleChange}
-        disabled={action !== "Idle"}
+        disabled={animationUser !== "Idle"}
         value={"Attack"}
       >
         Attack
       </button>
       <button
         onClick={handleChange}
-        disabled={action !== "Idle"}
+        disabled={animationUser !== "Idle"}
         value={"Block"}
       >
         Block
       </button>
       <button
         onClick={handleChange}
-        disabled={action !== "Idle"}
+        disabled={animationUser !== "Idle"}
         value={"Skill"}
       >
         Skill

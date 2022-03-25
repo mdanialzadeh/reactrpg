@@ -5,27 +5,54 @@ import idleAnimation from "./KnightIdle.png";
 import skillAnimation from "./knightSkillAnimation.png";
 import Animation from "../../Animation";
 import { useRecoilValue } from "recoil";
-import { actionState, KnightStats } from "../../../atoms";
+import { animationStateUser, KnightStats } from "../../../atoms";
 import Lifebar from "../../../Lifebar";
 
 function Knight() {
-  const action = useRecoilValue(actionState);
+  const animation = useRecoilValue(animationStateUser);
   const stats = useRecoilValue(KnightStats);
 
   return (
     <div
-      className={action === "Idle" ? "charContainer" : "charContainerActive"}
-      key={action}
+      className={animation === "Idle" ? "charContainer" : "charContainerActive"}
+      key={animation}
     >
       <Lifebar current={stats.currentHP} max={stats.maxHP} />
-      {action === "Idle" ? (
-        <Animation animation={idleAnimation} />
+      {animation === "Idle" ? (
+        <Animation
+          animation={idleAnimation}
+          steps={4}
+          direction={"forward"}
+          fps={4}
+          loop={true}
+        />
       ) : (
         {
-          Attack: <Animation animation={atkAnimation} />,
-          Block: <Animation animation={blockAnimation} />,
-          Skill: <Animation animation={skillAnimation} />,
-        }[action]
+          Attack: (
+            <Animation
+              animation={atkAnimation}
+              steps={4}
+              direction={"forward"}
+              fps={4}
+            />
+          ),
+          Block: (
+            <Animation
+              animation={blockAnimation}
+              steps={4}
+              direction={"forward"}
+              fps={4}
+            />
+          ),
+          Skill: (
+            <Animation
+              animation={skillAnimation}
+              steps={4}
+              direction={"forward"}
+              fps={4}
+            />
+          ),
+        }[animation]
       )}
     </div>
   );
