@@ -1,11 +1,5 @@
 import React, { useEffect } from "react";
-import {
-  RecoilRoot,
-  atom,
-  selector,
-  useRecoilState,
-  useRecoilValue,
-} from "recoil";
+import { useRecoilState } from "recoil";
 import { actionState, roundStateUser, roundStateComp } from "./atoms";
 
 function Controls() {

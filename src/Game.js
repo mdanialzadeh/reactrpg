@@ -1,8 +1,8 @@
 import "./App.css";
-import Knight from "./Knight/Knight.js";
+import Knight from "./Assets/Classes/Knight/Knight.js";
 import Controls from "./Controls";
 import Round from "./Round";
-import Golem from "./Mobs/Rock.js";
+import Golem from "./Assets/Mobs/Golem/Rock.js";
 import { useRecoilValue } from "recoil";
 import Stats from "./Stats";
 import { activeScreen } from "./atoms";

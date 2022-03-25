@@ -1,18 +1,16 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Spritesheet from "react-responsive-spritesheet";
-import skillAnimation from "./knightSkillAnimation.png";
 
-function knightSkill() {
+function Animation({ animation }) {
   return (
     <Spritesheet
       autoplay={true}
-      image={skillAnimation}
+      image={animation}
       widthFrame={120}
       heightFrame={80}
       steps={4}
       fps={4}
       loop={true}
-      isResponsive={true}
       onInit={(spritesheet) => {
         spritesheet.goToAndPlay(1);
       }}
@@ -20,4 +18,4 @@ function knightSkill() {
   );
 }
 
-export default knightSkill;
+export default Animation;
