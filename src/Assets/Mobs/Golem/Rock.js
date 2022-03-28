@@ -1,21 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { useRecoilValue } from "recoil";
 import idleAnimation from "./golemIdle.png";
 import atkAnimation from "./golemAtk.png";
 import blockAnimation from "./golemblock.png";
 import skillAnimation from "./golemSkill.png";
-import { animationStateComp, KnightStats } from "../../../atoms.js";
+import { animationStateComp } from "../../../atoms.js";
 import Lifebar from "../../../Lifebar";
 import Animation from "../../Animation";
 
 function Rock() {
   const animation = useRecoilValue(animationStateComp);
+  const [currentHP, setCurrentHP] = useState(100);
   return (
     <div
       className={animation === "Idle" ? "mobContainer" : "mobContainerActive"}
       key={animation}
     >
-      <Lifebar current={50} max={100} />
+      <Lifebar current={currentHP} max={100} />
       {animation === "Idle" ? (
         <Animation
           animation={idleAnimation}

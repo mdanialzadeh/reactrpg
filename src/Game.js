@@ -6,7 +6,7 @@ import { useRecoilValue } from "recoil";
 import Round from "./Round";
 import { activeScreen } from "./atoms";
 import CharsSelection from "./CharsSelection";
-import CharTravel from "./charTravel";
+import CharTravel from "./CharTravel";
 
 function Game() {
   const currentScreen = useRecoilValue(activeScreen);

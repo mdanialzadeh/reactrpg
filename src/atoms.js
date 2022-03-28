@@ -41,3 +41,15 @@ export const KnightStats = atom({
     Defense: "8",
   },
 });
+
+export const enemyStats = atom({
+  key: "enemyStats",
+  default: {
+    name: "",
+    maxHP: "",
+    currentHP: "",
+    AttackDMG: "",
+    skillDMG: "",
+    Defense: "",
+  },
+});

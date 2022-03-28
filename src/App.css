@@ -31,7 +31,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-
   background-size: 100% 100%;
   background-image: url("./Assets/Backgroundlayers/Layer_0000_9.png"),
     url("./Assets/Backgroundlayers/Layer_0001_8.png"),
@@ -66,7 +65,6 @@ body {
 .game-canvas {
   height: 93%;
   width: 100%;
-
   display: flex;
   position: absolute;
 }
@@ -78,6 +76,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 10;
 }
 
 .gameWrapper {
@@ -108,6 +107,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 10;
 }
 
 .mobContainerActive {

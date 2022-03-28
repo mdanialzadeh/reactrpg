@@ -12,7 +12,7 @@ function CharsSelection() {
 
   const handleChange = (event) => {
     setCurrentClassType(event.target.value);
-    setcurrentScreen("runGame");
+    setcurrentScreen("charTravel");
   };
 
   return (
