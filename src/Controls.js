@@ -46,7 +46,7 @@ function Controls() {
   }, [animationUser, setAnimationComp, setAnimationUser]);
 
   return (
-    <div>
+    <div style={{ margin: "auto" }}>
       <button
         onClick={handleChange}
         disabled={animationUser !== "Idle"}

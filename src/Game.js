@@ -1,40 +1,33 @@
 import "./App.css";
-import Knight from "./Assets/Classes/Knight/Knight.js";
+
 import Controls from "./Controls";
-import Round from "./Round";
-import Golem from "./Assets/Mobs/Golem/Rock.js";
+import Combat from "./Combat";
 import { useRecoilValue } from "recoil";
-import Stats from "./Stats";
+import Round from "./Round";
 import { activeScreen } from "./atoms";
 import CharsSelection from "./CharsSelection";
+import CharTravel from "./charTravel";
 
 function Game() {
   const currentScreen = useRecoilValue(activeScreen);
 
   return (
     <div className="App">
-      {
+      <Round />
+      <div className="gameWrapper">
         {
-          charSelection: <CharsSelection />,
-          runGame: (
-            <>
-              <Round />
-              <div className="game-container">
-                <div className="game-canvas">
-                  <div className="user-canvas">
-                    <Stats />
-                    <Knight />
-                  </div>
-                  <div className="enemy-canvas">
-                    <Golem />
-                  </div>
-                </div>
-              </div>
-              <Controls />
-            </>
-          ),
-        }[currentScreen]
-      }
+          {
+            charSelection: <CharsSelection />,
+            charTravel: <CharTravel />,
+            runGame: (
+              <>
+                <Combat />
+                <Controls />
+              </>
+            ),
+          }[currentScreen]
+        }
+      </div>
     </div>
   );
 }

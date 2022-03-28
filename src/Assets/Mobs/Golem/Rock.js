@@ -15,7 +15,7 @@ function Rock() {
       className={animation === "Idle" ? "mobContainer" : "mobContainerActive"}
       key={animation}
     >
-      <Lifebar current={KnightStats.currentHP} max={KnightStats.maxHP} />
+      <Lifebar current={50} max={100} />
       {animation === "Idle" ? (
         <Animation
           animation={idleAnimation}

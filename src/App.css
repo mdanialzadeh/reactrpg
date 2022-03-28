@@ -13,7 +13,7 @@ html {
 }
 
 body {
-  background: grey;
+  background: rgb(1, 9, 19);
   height: 100%;
 }
 
@@ -27,10 +27,11 @@ body {
 
 .game-container {
   position: relative;
-  width: clamp(350px, 90%, 700px);
-  height: clamp(300px, 35%, 600px);
+  height: 100%;
   display: flex;
-  outline: 2px solid black;
+  flex-direction: column;
+  align-items: center;
+
   background-size: 100% 100%;
   background-image: url("./Assets/Backgroundlayers/Layer_0000_9.png"),
     url("./Assets/Backgroundlayers/Layer_0001_8.png"),
@@ -46,12 +47,28 @@ body {
     url("./Assets/Backgroundlayers/Layer_0011_0.png");
 }
 
-.game-canvas {
-  width: 90%;
-  height: 85%;
-  margin: auto;
-  border: 1px solid rgba(255, 255, 255, 0.281);
+.travel-container {
+  position: relative;
+  height: 100%;
   display: flex;
+  flex-direction: column;
+  background-size: 100% 100%;
+  background-image: url("./Assets/Backgroundlayers/Layer_0009_2.png"),
+    url("./Assets/Backgroundlayers/Layer_0010_1.png"),
+    url("./Assets/Backgroundlayers/Layer_0011_0.png");
+}
+
+.travel-background {
+  position: absolute;
+  bottom: 0;
+}
+
+.game-canvas {
+  height: 93%;
+  width: 100%;
+
+  display: flex;
+  position: absolute;
 }
 
 .charContainer {
@@ -63,13 +80,25 @@ body {
   align-items: center;
 }
 
+.gameWrapper {
+  width: clamp(350px, 90%, 700px);
+  height: 425px;
+  overflow: hidden;
+  border: 2px solid black;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  justify-content: center;
+}
+
 .charContainerActive {
   position: absolute;
   bottom: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  animation: myAnim 1.6s ease 0s 1 normal forwards;
+  animation: myAnim 1.4s ease 0s 1 normal forwards;
 }
 
 .mobContainer {
@@ -87,16 +116,15 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  animation: enemyanim 1.6s ease 0s 1 normal forwards;
+  animation: enemyanim 1.4s ease 0s 1 normal forwards;
 }
 
 .charSelectionContainer {
   display: flex;
-  position: relative;
-  width: clamp(350px, 90%, 700px);
-  height: clamp(300px, 35%, 600px);
-  display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
+  width: 80%;
+  min-width: min-content;
+  align-self: center;
   align-items: center;
   outline: 2px solid black;
 }
@@ -146,7 +174,6 @@ body {
 }
 
 .user-canvas {
-  border: 1px solid red;
   position: relative;
   height: 100%;
   width: 50%;
@@ -155,7 +182,6 @@ body {
 }
 
 .enemy-canvas {
-  border: 1px solid red;
   position: relative;
   height: 100%;
   width: 50%;

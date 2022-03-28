@@ -1,7 +1,7 @@
 import React from "react";
-import atkAnimation from "./WidzardAtk.png";
-import blockAnimation from "./WizardBlock.png";
-import idleAnimation from "./WizardIdle.png";
+import atkAnimation from "./WizardAtk.png";
+import blockAnimation from "./wizardBlock.png";
+import idleAnimation from "./wizardIdle.png";
 import skillAnimation from "./WizardSkill.png";
 import Animation from "../../Animation";
 import { useRecoilValue } from "recoil";
@@ -24,6 +24,7 @@ function Wizard() {
           steps={4}
           direction={"forward"}
           fps={4}
+          loop={true}
         />
       ) : (
         {

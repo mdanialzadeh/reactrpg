@@ -10,7 +10,7 @@ export default ({ current, max }) => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="1 -0.5 100 50"
-      shape-rendering="crispEdges"
+      shapeRendering="crispEdges"
     >
       <path
         stroke="#000000"

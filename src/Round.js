@@ -7,7 +7,7 @@ function Round() {
   const compRoundAction = useRecoilValue(roundStateComp);
 
   return (
-    <div>
+    <div style={{ color: "white" }}>
       <>{userRoundAction}</>
       <>{compRoundAction}</>
     </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import atkAnimation from "./knightAtkAnimation.png";
 import blockAnimation from "./knightBlockAnimation.png";
+import runAnimation from "./knightRun.png";
 import idleAnimation from "./KnightIdle.png";
 import skillAnimation from "./knightSkillAnimation.png";
 import Animation from "../../Animation";
@@ -31,6 +32,14 @@ function Knight() {
           Attack: (
             <Animation
               animation={atkAnimation}
+              steps={4}
+              direction={"forward"}
+              fps={4}
+            />
+          ),
+          Run: (
+            <Animation
+              animation={runAnimation}
               steps={4}
               direction={"forward"}
               fps={4}

@@ -25,6 +25,11 @@ export const activeScreen = atom({
   default: "charSelection",
 });
 
+export const classType = atom({
+  key: "classType",
+  default: "none",
+});
+
 export const KnightStats = atom({
   key: "Knightstats",
   default: {
