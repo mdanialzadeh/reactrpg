@@ -7,6 +7,7 @@ import Round from "./Round";
 import { activeScreen } from "./atoms";
 import CharsSelection from "./CharsSelection";
 import CharTravel from "./CharTravel";
+import KnightClass from "./Assets/Classes/Knight/KnightClass";
 
 function Game() {
   const currentScreen = useRecoilValue(activeScreen);
