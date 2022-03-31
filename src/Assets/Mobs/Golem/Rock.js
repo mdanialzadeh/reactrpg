@@ -1,22 +1,38 @@
-import React, { useState } from "react";
-import { useRecoilValue } from "recoil";
+import React, { useEffect, useState } from "react";
+import { useRecoilValue, useRecoilState } from "recoil";
 import idleAnimation from "./golemIdle.png";
 import atkAnimation from "./golemAtk.png";
 import blockAnimation from "./golemblock.png";
 import skillAnimation from "./golemSkill.png";
-import { animationStateComp } from "../../../atoms.js";
+import { animationStateComp, enemyStats } from "../../../atoms.js";
 import Lifebar from "../../../Lifebar";
 import Animation from "../../Animation";
 
 function Rock() {
   const animation = useRecoilValue(animationStateComp);
-  const [currentHP, setCurrentHP] = useState(100);
+  const [currentEnemyStats, setCurrentEnemyStats] = useRecoilState(enemyStats);
+
+  useEffect(() => {
+    setCurrentEnemyStats({
+      name: "Golem",
+      maxHP: 200,
+      currentHP: 200,
+      AttackDMG: 10,
+      skillDMG: 10,
+      Defense: 4,
+      shield: 2,
+    });
+  }, []);
+
   return (
     <div
       className={animation === "Idle" ? "mobContainer" : "mobContainerActive"}
       key={animation}
     >
-      <Lifebar current={currentHP} max={100} />
+      <Lifebar
+        current={currentEnemyStats.currentHP}
+        max={currentEnemyStats.maxHP}
+      />
       {animation === "Idle" ? (
         <Animation
           animation={idleAnimation}
