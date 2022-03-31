@@ -2,8 +2,7 @@ import React from "react";
 
 /* eslint import/no-anonymous-default-export: [2, {"allowArrowFunction": true}] */
 export default ({ current, max }) => {
-  const fullWidth = 63;
-
+  const fullWidth = "63";
   const percent = current / max;
   const pixelFill = Math.floor(fullWidth * percent);
   return (
@@ -22,8 +21,8 @@ export default ({ current, max }) => {
       />
       <path stroke="#8c8c8c" d="M17 34h63M17 35h63" />
       <path stroke="#c9c9c9" d="M17 36h63M17 37h63M17 38h63M17 39h63" />
-      <rect fill="red" x={17} y={33.5} width={pixelFill} height={6} />
-      <rect fill="#af0707e6" x={17} y={33.5} width={pixelFill} height={2} />
+      <rect fill="red" x={17} y={33.5} width={pixelFill} height={"6"} />
+      <rect fill="#af0707e6" x={17} y={33.5} width={pixelFill} height={"2"} />
     </svg>
   );
 };

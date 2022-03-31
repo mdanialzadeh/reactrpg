@@ -1,19 +1,21 @@
-import React from "react";
-import Spritesheet from "react-responsive-spritesheet";
-import ground from "./Assets/Images/ground1.png";
-import layer2 from "./Assets/Images/ground.png";
-import layer3 from "./Assets/Images/layer3sprite.png";
+import React, { useEffect } from "react";
 
 import Knight from "./Assets/Classes/Knight/Knight.js";
 import Wizard from "./Assets/Classes/Wizard/Wizard.js";
 import Stats from "./Stats";
-import { classType } from "./atoms";
-import { useRecoilValue } from "recoil";
-import Encounter from "./Encounter";
+import { classType, activeScreen } from "./atoms";
+import { useRecoilValue, useRecoilState } from "recoil";
 import MovingBackground from "./MovingBackground";
 
 function CharTravel() {
   const currentClass = useRecoilValue(classType);
+  const [currentscreen, setcurrentScreen] = useRecoilState(activeScreen);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setcurrentScreen("runGame");
+    }, 2000);
+  }, [setcurrentScreen]);
 
   return (
     <div className="game-container">
@@ -21,7 +23,6 @@ function CharTravel() {
 
       <div className="game-canvas">
         <div className="user-canvas">
-          <Stats />
           <div className="charContainer">
             {
               {

@@ -12,12 +12,12 @@ export const animationStateComp = atom({
 
 export const roundStateUser = atom({
   key: "roundStateUser",
-  default: "",
+  default: "Idle",
 });
 
 export const roundStateComp = atom({
   key: "roundStateComp",
-  default: "",
+  default: "Idle",
 });
 
 export const activeScreen = atom({
@@ -34,11 +34,12 @@ export const KnightStats = atom({
   key: "Knightstats",
   default: {
     class: "Knight",
-    maxHP: "100",
-    currentHP: "90",
-    AttackDMG: "6",
-    skillDMG: "2",
-    Defense: "8",
+    maxHP: 100,
+    currentHP: 90,
+    AttackDMG: 6,
+    skillDMG: 2,
+    Defense: 8,
+    shield: 2,
   },
 });
 
@@ -46,10 +47,11 @@ export const enemyStats = atom({
   key: "enemyStats",
   default: {
     name: "",
-    maxHP: "",
-    currentHP: "",
-    AttackDMG: "",
-    skillDMG: "",
-    Defense: "",
+    maxHP: 0,
+    currentHP: 0,
+    AttackDMG: 0,
+    skillDMG: 0,
+    Defense: 0,
+    shield: 0,
   },
 });

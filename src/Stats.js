@@ -1,9 +1,7 @@
 import React from "react";
-import { KnightStats } from "./atoms.js";
-import { useRecoilValue } from "recoil";
 
-function Stats() {
-  const stats = useRecoilValue(KnightStats);
+/* eslint import/no-anonymous-default-export: [2, {"allowArrowFunction": true}] */
+export default ({ stats }) => {
   return (
     <div className="statsContainer">
       <div>HP: {stats.currentHP}</div>
@@ -12,6 +10,4 @@ function Stats() {
       <div>Ability Power: {stats.skillDMG}</div>
     </div>
   );
-}
-
-export default Stats;
+};
