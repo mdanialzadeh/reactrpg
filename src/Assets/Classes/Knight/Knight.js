@@ -1,24 +1,37 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import atkAnimation from "./knightAtkAnimation.png";
 import blockAnimation from "./knightBlockAnimation.png";
 import runAnimation from "./knightRun.png";
 import idleAnimation from "./KnightIdle.png";
 import skillAnimation from "./knightSkillAnimation.png";
 import Animation from "../../Animation";
-import { useRecoilValue } from "recoil";
-import { animationStateUser, KnightStats } from "../../../atoms";
+import { useRecoilValue, useRecoilState } from "recoil";
+import { animationStateUser, userStats } from "../../../atoms";
 import Lifebar from "../../../Lifebar";
 
 function Knight() {
   const animation = useRecoilValue(animationStateUser);
-  const stats = useRecoilValue(KnightStats);
+
+  const [userstats, setuserstats] = useRecoilState(userStats);
+
+  useEffect(() => {
+    setuserstats({
+      class: "Knight",
+      maxHP: 200,
+      currentHP: 200,
+      AttackDMG: 10,
+      skillDMG: 10,
+      Defense: 4,
+      shield: 2,
+    });
+  }, []);
 
   return (
     <div
       className={animation === "Idle" ? "charContainer" : "charContainerActive"}
       key={animation}
     >
-      <Lifebar current={stats.currentHP} max={stats.maxHP} />
+      <Lifebar current={userstats.currentHP} max={userstats.maxHP} />
       {animation === "Idle" ? (
         <Animation
           animation={idleAnimation}

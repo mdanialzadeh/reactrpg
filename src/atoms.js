@@ -30,16 +30,25 @@ export const classType = atom({
   default: "none",
 });
 
-export const KnightStats = atom({
-  key: "Knightstats",
+export const icons = atom({
+  key: "icons",
   default: {
-    class: "Knight",
-    maxHP: 100,
-    currentHP: 90,
-    AttackDMG: 6,
-    skillDMG: 2,
-    Defense: 8,
-    shield: 2,
+    attackIcon: "",
+    defendIcon: "",
+    skillIcon: "",
+  },
+});
+
+export const userStats = atom({
+  key: "userStats",
+  default: {
+    class: "",
+    maxHP: null,
+    currentHP: null,
+    AttackDMG: null,
+    skillDMG: null,
+    Defense: null,
+    shield: null,
   },
 });
 
@@ -47,11 +56,11 @@ export const enemyStats = atom({
   key: "enemyStats",
   default: {
     name: "",
-    maxHP: 0,
-    currentHP: 0,
-    AttackDMG: 0,
-    skillDMG: 0,
-    Defense: 0,
-    shield: 0,
+    maxHP: null,
+    currentHP: null,
+    AttackDMG: null,
+    skillDMG: null,
+    Defense: null,
+    shield: null,
   },
 });

@@ -17,7 +17,7 @@ function CharsSelection() {
 
   return (
     <>
-      <h1 style={{ margin: "0 auto" }}>Choose Your Class</h1>
+      <h1 style={{ margin: "20px auto", color: "white" }}>Choose Your Class</h1>
       <div className="charSelectionContainer">
         <div style={{ display: "flex", flexDirection: "column" }}>
           <Animation
@@ -27,7 +27,11 @@ function CharsSelection() {
             fps={4}
             loop={true}
           />
-          <button onClick={handleChange} value="Knight">
+          <button
+            onClick={handleChange}
+            value="Knight"
+            style={{ width: "80px", margin: "auto" }}
+          >
             Knight
           </button>
         </div>
@@ -39,7 +43,11 @@ function CharsSelection() {
             fps={4}
             loop={true}
           />
-          <button onClick={handleChange} value="Wizard">
+          <button
+            onClick={handleChange}
+            value="Wizard"
+            style={{ width: "80px", margin: "auto" }}
+          >
             Wizard
           </button>
         </div>
@@ -51,8 +59,23 @@ function CharsSelection() {
             fps={4}
             loop={true}
           />
-          <button onClick={handleChange} value="Archer">
+          <button
+            onClick={handleChange}
+            value="Archer"
+            style={{ width: "80px", margin: "auto" }}
+          >
             Archer
+          </button>
+        </div>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <div style={{ height: "80px" }}></div>
+          <button
+            onClick={handleChange}
+            value="Archer"
+            disabled={true}
+            style={{ width: "80px", margin: "auto" }}
+          >
+            Coming Soon
           </button>
         </div>
       </div>

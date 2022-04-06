@@ -5,12 +5,12 @@ import idleAnimation from "./wizardIdle.png";
 import skillAnimation from "./WizardSkill.png";
 import Animation from "../../Animation";
 import { useRecoilValue } from "recoil";
-import { animationStateUser, KnightStats } from "../../../atoms";
+import { animationStateUser, userStats } from "../../../atoms";
 import Lifebar from "../../../Lifebar";
 
 function Wizard() {
   const animation = useRecoilValue(animationStateUser);
-  const stats = useRecoilValue(KnightStats);
+  const stats = useRecoilValue(userStats);
 
   return (
     <div

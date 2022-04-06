@@ -15,11 +15,11 @@ function Rock() {
   useEffect(() => {
     setCurrentEnemyStats({
       name: "Golem",
-      maxHP: 200,
-      currentHP: 200,
-      AttackDMG: 10,
-      skillDMG: 10,
-      Defense: 4,
+      maxHP: 60,
+      currentHP: 60,
+      AttackDMG: 5,
+      skillDMG: 6,
+      Defense: 2,
       shield: 2,
     });
   }, []);

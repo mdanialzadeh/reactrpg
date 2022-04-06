@@ -4,14 +4,14 @@ import {
   roundStateUser,
   roundStateComp,
   enemyStats,
-  KnightStats,
+  userStats,
 } from "./atoms.js";
 
 function Round() {
   const userRoundAction = useRecoilValue(roundStateUser);
   const compRoundAction = useRecoilValue(roundStateComp);
   const [enemystats, setEnemyStats] = useRecoilState(enemyStats);
-  const [userstats, setUserStats] = useRecoilState(KnightStats);
+  const [userstats, setUserStats] = useRecoilState(userStats);
 
   var enemyHP = parseInt(enemystats.currentHP);
   var enemyAtkDmg = parseInt(enemystats.AttackDMG);
@@ -23,6 +23,13 @@ function Round() {
   var userAtkDmg = parseInt(userstats.AttackDMG);
   var userSkillDmg = parseInt(userstats.skillDMG);
   var userDef = parseInt(userstats.Defense);
+  var userShield = parseInt(userstats.shield);
+
+  useEffect(() => {
+    if (userHP <= 0 || enemyHP <= 0) {
+      console.log("round Over");
+    }
+  }, [enemyHP, userHP]);
 
   useEffect(() => {
     if (
@@ -64,12 +71,24 @@ function Round() {
       switch ((userRoundAction, compRoundAction)) {
         case ("Attack", "Block"):
           console.log("player Attacks enemy Blocks");
+          setUserStats({
+            ...userstats,
+            currentHP: userHP - enemyAtkDmg,
+          });
           break;
         case ("Skill", "Attack"):
           console.log("player uses Skill Enemy Attacks");
+          setUserStats({
+            ...userstats,
+            currentHP: userHP - enemyAtkDmg,
+          });
           break;
         case ("Block", "Skill"):
           console.log("player Blocks Enemy used Skill");
+          setUserStats({
+            ...userstats,
+            currentHP: userHP - (enemySkillDmg - userShield),
+          });
           break;
         default:
       }
@@ -78,12 +97,36 @@ function Round() {
       switch ((userRoundAction, compRoundAction)) {
         case ("Attack", "Attack"):
           console.log("you both attack");
+          setUserStats({
+            ...userstats,
+            currentHP: userHP - (enemyAtkDmg - userDef),
+          });
+          setEnemyStats({
+            ...enemystats,
+            currentHP: enemyHP - (userAtkDmg - enemyDef),
+          });
           break;
         case ("skill", "skill"):
           console.log("you both used skill");
+          setUserStats({
+            ...userstats,
+            currentHP: userHP - (enemySkillDmg - userShield),
+          });
+          setEnemyStats({
+            ...enemystats,
+            currentHP: enemyHP - userAtkDmg,
+          });
           break;
         case ("Block", "Block"):
           console.log("you both Block");
+          setUserStats({
+            ...userstats,
+            currentHP: userHP - (enemySkillDmg - userShield),
+          });
+          setEnemyStats({
+            ...enemystats,
+            currentHP: enemyHP - userAtkDmg,
+          });
           break;
         default:
       }
@@ -92,7 +135,7 @@ function Round() {
   }, [compRoundAction, userRoundAction]);
 
   return (
-    <div style={{ color: "white" }}>
+    <div className="roundResults">
       <>{userRoundAction}</>
       <>{compRoundAction}</>
     </div>

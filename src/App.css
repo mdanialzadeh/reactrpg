@@ -6,32 +6,54 @@
 
 html {
   height: 100%;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 #root {
   height: 100%;
+  display: flex;
 }
 
 body {
-  background: rgb(1, 9, 19);
+  background: rgb(0, 0, 0);
   height: 100%;
 }
 
 .App {
-  height: 100%;
+  border: 4px solid rgb(41, 40, 38);
   display: flex;
-  justify-content: center;
+  margin: auto;
+  height: clamp(600px, 95%, 800px);
+  width: clamp(340px, 90%, 550px);
+  justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
+  border-radius: 30px 10px 30px 30px;
+  background-image: linear-gradient(
+    to right bottom,
+    #001c10,
+    #001c10,
+    #011c10,
+    #011c10,
+    #011c10,
+    #011d11,
+    #011d11,
+    #011e12,
+    #012013,
+    #012114,
+    #012315,
+    #002516
+  );
+  box-shadow: 0px 0px 6px 2px #35333394;
 }
 
 .game-container {
   position: relative;
-  height: 425px;
+  height: 100%;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  border: 10px solid black;
+  border: 10px solid rgb(0, 0, 0);
   z-index: 100;
   overflow: hidden;
   align-items: center;
@@ -66,7 +88,7 @@ body {
 }
 
 .game-canvas {
-  height: 355px;
+  height: clamp(240px, 92%, 400px);
   width: 100%;
   display: flex;
   position: absolute;
@@ -84,11 +106,13 @@ body {
 }
 
 .gameWrapper {
-  width: clamp(350px, 90%, 700px);
-  height: 425px;
+  width: clamp(300px, 90%, 700px);
+  height: clamp(375px, 50%, 450px);
   overflow: hidden;
-
+  border: 5px ridge rgb(53, 53, 53);
+  background-color: black;
   display: flex;
+  margin-top: 5%;
   flex-direction: column;
   justify-self: center;
   justify-content: center;
@@ -123,13 +147,18 @@ body {
 }
 
 .charSelectionContainer {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   justify-content: space-evenly;
   width: 80%;
   min-width: min-content;
   align-self: center;
   align-items: center;
   outline: 2px solid black;
+}
+
+.charSelectionContainer.button {
+  width: 10px;
 }
 
 @keyframes myAnim {
@@ -140,12 +169,12 @@ body {
 
   20% {
     opacity: 1;
-    transform: translateX(8vw);
+    transform: translateX(clamp(1rem, 5vw, 4rem));
   }
 
   80% {
     opacity: 1;
-    transform: translateX(8vw);
+    transform: translateX(clamp(1rem, 5vw, 4rem));
   }
 
   100% {
@@ -162,12 +191,12 @@ body {
 
   20% {
     opacity: 1;
-    transform: translateX(-8vw);
+    transform: translateX(clamp(-1rem, 5vw, -4rem));
   }
 
   80% {
     opacity: 1;
-    transform: translateX(-8vw);
+    transform: translateX(clamp(-1rem, 5vw, -4rem));
   }
 
   100% {
@@ -192,7 +221,24 @@ body {
   justify-content: center;
 }
 
-.statsContainer {
+.mobStats {
+  position: absolute;
+  background-image: linear-gradient(
+    to left,
+    #ffffff34,
+    #ffffff30,
+    #ffffff20,
+    #ffffff10,
+    #ffffff00
+  );
+  right: 0;
+  backdrop-filter: blur(44px);
+  padding: 0.5rem 1rem 0 0;
+  text-align: right;
+  width: 100%;
+}
+
+.userStats {
   position: absolute;
   background-image: linear-gradient(
     to right,
@@ -202,7 +248,86 @@ body {
     #ffffff10,
     #ffffff00
   );
-  backdrop-filter: blur(44px);
   left: 0;
+  backdrop-filter: blur(44px);
+  padding: 0.5rem 0 0 1rem;
+  text-align: start;
+  width: 100%;
+}
+
+.button-container {
+  display: flex;
+  height: 100px;
+  width: 30%;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding-top: 10px;
+  border-radius: 10px;
+  background: white;
+}
+
+.Icon {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
   padding: 10px;
+  bottom: 0;
+}
+
+.icon-buttons {
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  bottom: 0;
+  z-index: 1000;
+  border-radius: 10px;
+}
+
+.roundResults {
+  width: clamp(300px, 90%, 700px);
+  background: white;
+  text-align: center;
+  height: 5rem;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid black;
+}
+
+.controlsContainer {
+  width: clamp(300px, 90%, 700px);
+  margin-bottom: 1rem;
+  background-color: black;
+  padding: 10px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.controlwrapper {
+  width: clamp(300px, 90%, 700px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 40%;
+}
+
+.controlhold {
+  width: clamp(300px, 90%, 700px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 40%;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
