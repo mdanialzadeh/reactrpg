@@ -1,6 +1,7 @@
 One of my first projects was to create a simple game of Rock Paper Scissors using html, css and javascript
 
 original game repository: https://github.com/mdanialzadeh/rock-paper-scissors
+
 link to original game: https://mdanialzadeh.github.io/rock-paper-scissors/
 
 since then I have continued my journey through front end development expanding my skills to include new frameworks and librarys such as Reacts and Recoil
