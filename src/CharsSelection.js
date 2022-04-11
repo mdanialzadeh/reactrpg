@@ -17,7 +17,9 @@ function CharsSelection() {
 
   return (
     <>
-      <h1 style={{ margin: "20px auto", color: "white" }}>Choose Your Class</h1>
+      <h1 style={{ margin: "10px auto", color: "white", textAlign: "center" }}>
+        Choose Your Class
+      </h1>
       <div className="charSelectionContainer">
         <div style={{ display: "flex", flexDirection: "column" }}>
           <Animation
